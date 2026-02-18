@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -16,14 +17,14 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  min-height:100vh;
 }
 
 /* contenedor general */
 .container{
   text-align:center;
   width:100%;
-  max-width:720px;
+  max-width:700px;
   margin:auto;
 }
 
@@ -33,8 +34,8 @@ body{
   height:220px;
   border-radius:50%;
   overflow:hidden;
-  margin:0 auto 40px auto;
-  animation: girar 14s linear infinite;
+  margin:0 auto 50px auto;
+  animation: girar 16s linear infinite;
   box-shadow:0 0 25px rgba(255,255,255,0.15);
 }
 
@@ -44,26 +45,34 @@ body{
   object-fit:cover;
 }
 
+/* animación */
 @keyframes girar{
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
 }
 
-/* columnas idioma */
+/* GRID idiomas */
 .grid{
+  position:relative;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap:40px;
+  gap:20px;
   align-items:center;
 }
 
-/* línea divisoria */
-.grid div{
-  padding:10px;
+/* línea central REAL */
+.divider{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:1px;
+  background:rgba(255,255,255,0.25);
 }
 
-.grid div:first-child{
-  border-right:1px solid rgba(255,255,255,0.25);
+/* columnas */
+.col{
+  padding:10px;
 }
 
 /* textos */
@@ -93,13 +102,16 @@ h2{
 
 .grid{
   grid-template-columns: 1fr;
-  gap:30px;
 }
 
-.grid div:first-child{
-  border-right:none;
+.divider{
+  display:none;
+}
+
+.col:first-child{
   border-bottom:1px solid rgba(255,255,255,0.25);
   padding-bottom:30px;
+  margin-bottom:30px;
 }
 
 }
@@ -112,32 +124,37 @@ h2{
 
 <div class="container">
 
+<!-- disco -->
 <div class="disco">
 <img src="sticker.png">
 </div>
 
+<!-- idiomas -->
 <div class="grid">
 
-<div>
+<div class="divider"></div>
+
+<div class="col">
 <h2>¡Gracias por escanear!</h2>
+
 <a class="boton" href="LINK_VIMEO_ES" target="_blank">
 Ver película
 </a>
+
 </div>
 
-<div>
+<div class="col">
 <h2>Thanks for scanning!</h2>
-<a class="boton" href="https://vimeo.com/user253032722" target="_blank">
+
+<a class="boton" href="LINK_VIMEO_EN" target="_blank">
 Watch movie (eng. subs)
 </a>
-</div>
 
 </div>
 
 </div>
 
-</body>
-</html>
+</div>
 
 </body>
 </html>

@@ -9,11 +9,18 @@
 
 <style>
 
+/* FUENTE PERSONALIZADA */
+@font-face{
+  font-family: "Hitchcut";
+  src: url("Hitchcut-Regular.otf");
+}
+
+/* BASE */
 body{
   margin:0;
   background:black;
   color:white;
-  font-family: Arial, sans-serif;
+  font-family: "Hitchcut", Arial, sans-serif;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -42,11 +49,11 @@ body{
   height:220px;
   border-radius:50%;
   overflow:hidden;
-  margin:0 auto 50px auto;
+  margin:0 auto 60px auto;
   box-shadow:0 0 25px rgba(255,255,255,0.15);
 }
 
-/* clase que activa giro */
+/* clase giro */
 .disco.girar{
   animation: girar 18s linear infinite;
 }
@@ -57,7 +64,7 @@ body{
   object-fit:cover;
 }
 
-/* reflejo */
+/* brillo */
 .disco::after{
   content:"";
   position:absolute;
@@ -106,24 +113,19 @@ body{
   padding:10px;
 }
 
-h2{
-  font-weight:normal;
-  margin-bottom:20px;
-}
-
-/* boton principal */
+/* BOTONES PRINCIPALES */
 .boton{
   display:inline-block;
   padding:14px 26px;
   background:white;
   color:black;
   text-decoration:none;
-  font-weight:bold;
   border-radius:6px;
-  font-size:16px;
+  font-size:18px;
+  letter-spacing:0.5px;
 }
 
-/* boton trailer */
+/* BOTONES TRAILER */
 .boton-sec{
   display:inline-block;
   margin-top:8px;
@@ -131,9 +133,9 @@ h2{
   background:#cfcfcf;
   color:black;
   text-decoration:none;
-  font-weight:bold;
   border-radius:5px;
-  font-size:13px;
+  font-size:14px;
+  letter-spacing:0.5px;
 }
 
 .boton:hover,
@@ -168,12 +170,12 @@ h2{
 
 <div class="container">
 
-<!-- SONIDO SPIN (opcional) -->
+<!-- SONIDO -->
 <audio id="spinSound" preload="auto">
   <source src="spin.wav" type="audio/wav">
 </audio>
 
-<!-- disco -->
+<!-- DISCO -->
 <div id="disco" class="disco">
 <img src="sticker.png" loading="eager">
 </div>
@@ -182,10 +184,8 @@ h2{
 
 <div class="divider"></div>
 
-<!-- español -->
+<!-- Español -->
 <div class="col">
-
-<h2>¡Gracias por escanear!</h2>
 
 <a class="boton" href="https://vimeo.com/1153611564?share=copy&fl=sv&fe=ci" target="_blank">
 Ver película
@@ -194,15 +194,13 @@ Ver película
 <br>
 
 <a class="boton-sec" href="https://vimeo.com/1154346953?share=copy&fl=sv&fe=ci" target="_blank">
-Ver Trailer
+Ver trailer
 </a>
 
 </div>
 
-<!-- ingles -->
+<!-- Inglés -->
 <div class="col">
-
-<h2>Thanks for scanning!</h2>
 
 <a class="boton" href="https://vimeo.com/1153611564?share=copy&fl=sv&fe=ci" target="_blank">
 Watch movie (eng. subs)
@@ -217,22 +215,19 @@ Watch trailer
 </div>
 
 </div>
-
 </div>
 
 <script>
 
-/* cuando carga la pagina */
+/* arranque cinematográfico */
 window.addEventListener("load", function(){
 
   const disco = document.getElementById("disco");
   const sonido = document.getElementById("spinSound");
 
-  /* pequeño delay cinematográfico */
   setTimeout(()=>{
       disco.classList.add("girar");
 
-      /* intentar reproducir sonido */
       if(sonido){
         sonido.volume = 0.4;
         sonido.play().catch(()=>{});
